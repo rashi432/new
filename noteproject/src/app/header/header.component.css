@@ -1,0 +1,43 @@
+.yoo {
+    float: right;
+}
+
+.box {
+    width: 500px;
+    height: 600px;
+    padding: 15px;
+    box-shadow: 10px 10px 5px grey;
+    margin: 0;
+    background: rgba(8, 122, 23, 0.219);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.search {
+    margin-left: 100px;
+    padding-top: 10px;
+}
+
+.search input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+}
+
+.search button {
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+.search button:hover {
+    background: #ccc;
+}
