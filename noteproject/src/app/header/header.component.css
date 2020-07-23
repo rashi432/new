@@ -39,9 +39,3 @@
     background: #ccc;
 
 }
-img{
-    position: absolute;
-    top: 555px;
-    left: calc(90%);
-    border-radius: 50%;
-}
