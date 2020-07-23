@@ -1,3 +1,12 @@
+section {
+    padding: 0 100px;
+    background: url(../../assets/images/background.jpg);
+    /* background: brown; */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .box {
     width: 500px;
@@ -37,11 +46,11 @@
 
 .search button:hover {
     background: #ccc;
-
 }
-img{
+
+button {
     position: absolute;
-    top: 555px;
-    left: calc(90%);
-    border-radius: 50%;
+    top: 580px;
+    left: calc(80%);
+    border-radius: 80%;
 }

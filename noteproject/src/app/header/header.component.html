@@ -1,54 +1,58 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light-gray">
+<section>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light-gray">
 
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Notes
           </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
-            <a class="navbar-brand " href="#">Tasks</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <a class="navbar-brand " href="#">Tasks</a>
 
 
-        </ul>
+            </ul>
 
-
-    </div>
-</nav>
-
-<p></p>
-
-<div class="box">
-    <div class="container">
-        <div class="search">
-            <form>
-                <input type="text" placeholder="Search Notes" name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
 
         </div>
-    </div>
-    <form >
-        <div class="form-group">
-            <label for="exampleInputPassword1"></label>
+    </nav>
 
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Title">
+    <p></p>
+
+    <div class="box">
+        <div class="container">
+            <div class="search">
+                <form>
+                    <input type="text" placeholder="Search Notes" name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+
+            </div>
+        </div>
+
+
+        <form #f="ngForm">
             <div class="form-group">
-                <label for="exampleFormControlTextarea1"></label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="17" placeholder="Write Something.."></textarea>
-              </div>
-          </div>
-        
-    </form>
+                <label for="exampleInputPassword1"></label>
 
-    <button><img src="../../assets/images/42-423217_clipart-info-plus-sign-png.png" width="62px" height="62px" alt=""></button>
+                <input #tittleref="ngModel" [(ngModel)]="titleProp" name="title" type="title" class="form-control" id="exampleInputPassword1" placeholder="Title">
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1"></label>
+                    <textarea #textref="ngModel" [(ngModel)]="textProp" class="form-control" id="exampleFormControlTextarea1" rows="17" placeholder="Write Something.."></textarea>
+                </div>
+            </div>
 
-</div>
+        </form>
+
+        <button type="button" class="btn btn-success">SAVE</button>
+
+    </div>
+</section>
