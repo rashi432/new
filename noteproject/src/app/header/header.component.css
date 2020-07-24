@@ -1,20 +1,122 @@
 
-.box {
+body {
+    color: white;
+    margin: 0;
+    padding: 0;
+    perspective: 1px;
+    transform-style: preserve-3d;
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+
+}
+
+header {
+    box-sizing: border-box;
+    min-height: 100vh;
+    position: relative;
+    transform-style: inherit;
+    width: 100vw;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+header,
+header:before {
+    background: 50% 50% / cover;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    background: url(../../assets/images/background-image-for-website-14.jpg);
+    background-size: cover;
+    transform-origin: center center 0;
+    transform: translateZ(-1px) scale(2);
+    z-index: -1;
+    min-height: 25vh;
+}
+
+.container {
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    margin-left: 200px;
+    top: 110vh;
+    background: black;
+    line-height: 30px;
+    font-weight: lighter;
+    padding: 40px;
+    color: grey;
+}
+
+.text1{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 75px;
+    font-weight: 600;
+    letter-spacing: 8px;
+    display: block;
+    color: #f9f9f9;
+    position: absolute;
+    top: 37%;
+    left: 49%;
+    transform: translate(-50%, -50%);
+    animation: text 3s 1;
+
+}
+.text2{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 47px;
+    display: block;
+    color: rgb(126, 219, 26);
+    position: absolute;
+    top: 46%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+
+}
+
+@keyframes text{
+    0%{
+        color: black;
+        margin-bottom: -40%;
+    }
+    30%{
+        letter-spacing: 28px;
+        margin-bottom: -40px;
+    }
+    85%{
+        letter-spacing: 8px;
+        margin-bottom: -40px;
+    }
+}
+
+ .box {
+
     width: 500px;
     height: 600px;
     padding: 15px;
-    box-shadow: 10px 10px 5px grey;
+    background: url(../../assets/images/284971441.jpg);
+    box-shadow: 10px 10px 5px gray; 
     margin: 0;
-    background: rgba(8, 122, 23, 0.219);
     position: absolute;
-    top: 50%;
+    top: 220%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%)
-}
+}   
 
-.search {
-    margin-left: 100px;
+  .search {
+    margin-left: 87px;
     padding-top: 10px;
 }
 
@@ -38,4 +140,14 @@
 .search button:hover {
     background: #ccc;
 
+}   
+.navbar-brand {
+    color: honeydew;
+    font-weight: 500;
+    padding: 10px;
+}
+#navbarDropdown{
+    color: honeydew;
+    font-weight: 500;
+    padding: 10px;
 }
