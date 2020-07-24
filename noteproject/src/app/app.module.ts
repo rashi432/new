@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { HeaderComponent } from './header/header.component';
 import { BodyComponent } from './body/body.component';
+import { AllComponent } from './all/all.component';
+import { TasksComponent } from './tasks/tasks.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
     HeaderComponent,
-    BodyComponent
+    BodyComponent,
+    AllComponent,
+    TasksComponent
   ],
   imports: [
     BrowserModule,
