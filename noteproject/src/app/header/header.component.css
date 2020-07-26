@@ -1,63 +1,23 @@
-
- section {
-    color:wheat;
-    margin: 0;
-    padding: 0;
-    perspective: 1px;
-    transform-style: preserve-3d;
-    height: 100%;
-    width: 100%;
-    overflow-y: scroll;
-    overflow-x: hidden;
-
-
-} 
-
- header {
-    box-sizing: border-box;
-    min-height: 100vh;
-    position: relative;
-    transform-style: inherit;
-    width: 100vw;
-    text-align: center;
-    text-transform: uppercase;
-} 
-
-/* header,
-header:before {
-    background: 50% 50% / cover;
-} */
-
-header::before {
-    content: ""; 
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: block;
+section{
     background: url(../../assets/images/background-image-for-website-14.jpg);
-    background-size: cover;
-    transform-origin: center center 0;
-    transform: translateZ(-1px) scale(2);
-    z-index: -1;
-    min-height: 25vh;
-    
-}
-
-.container {
-    z-index: 2;
-    position: absolute;
+    height: 780px;
     width: 100%;
-    margin-left: 200px;
-    top: 110vh;
-    background: black;
-    line-height: 30px;
-    font-weight: lighter;
-    padding: 40px;
-    color: grey;
+    background-size: cover;
 }
-
+.navbar-brand {
+    color: honeydew;
+    font-weight: 500;
+    padding: 10px;
+    margin-right: 23px;
+}
+#navbarDropdown{
+    color: honeydew;
+    font-size: 19px;
+    font-weight: 500;
+    padding: 10px;
+    margin-right: 20px;
+    margin-top: 2px;
+} 
 .text1{
     text-align: center;
     text-transform: uppercase;
@@ -85,7 +45,6 @@ header::before {
     transform: translate(-50%, -50%);
 
 }
-
 @keyframes text{
     0%{
         color: black;
@@ -100,8 +59,20 @@ header::before {
         margin-bottom: -40px;
     }
 }
+.container {
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    margin-left: 200px;
+    top: 90vh;
+    background: black;
+    line-height: 30px;
+    font-weight: lighter;
+    padding: 40px;
+    color: grey;
+}
 
- .box {
+.box {
 
     width: 500px;
     height: 600px;
@@ -110,7 +81,7 @@ header::before {
     box-shadow: 10px 10px 5px gray; 
     margin: 0;
     position: absolute;
-    top: 220%;
+    top: 190%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%)
@@ -141,17 +112,35 @@ header::before {
 .search button:hover {
     background: #ccc;
 
-}   
-.navbar-brand {
-    color: honeydew;
-    font-weight: 500;
-    padding: 10px;
-    margin-right: 23px;
+} 
+button{
+    margin-top: 20px;
 }
-#navbarDropdown{
-    color: honeydew;
-    font-weight: 500;
-    padding: 10px;
-    margin-right: 30px;
-    margin-top: 5px;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
