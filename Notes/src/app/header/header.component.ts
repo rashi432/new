@@ -8,14 +8,11 @@ import {Router} from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-titleProp;
-textProp;
+titleprop;
+noteprop;
   constructor(private route:Router) { }
 
   ngOnInit(): void {
   }
-gotoall(){
-  this.route.navigate(['/all'])
   
-}
 }
