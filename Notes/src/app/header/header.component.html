@@ -1,12 +1,12 @@
 <section>
-    
+
     <nav class="navbar navbar-dark navbar-expand-lg bg-light-gray fixed-top">
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    
+
             <ul class="navbar-nav ml-auto">
-   
-                <a data-toggle="modal" data-target="#exampleModalCenter" routerLink="/all"  class="navbar-brand" href="#">All Notes</a>
+
+                <a data-toggle="modal" data-target="#exampleModalCenter" routerLink="/all" class="navbar-brand" href="#">All Notes</a>
                 <a routerLink="/tasks" class="navbar-brand" href="#">Tasks</a>
 
 
@@ -19,53 +19,42 @@
 
     <div class="container">
 
-      <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores harum veritatis
-          nemo magni odio reprehenderit atque, esse animi porro suscipit vero nobis modi quis.
-          Exercitationem quasi beatae, assumenda officia illum sunt. Cum voluptas maiores
-          vitae eius hic inventore deleniti placeat perferendis quam ut nostrum maxime optio
-          voluptatibus ab laboriosam, quia consectetur atque minus? Adipisci amet aut sint
-          voluptates delectus aperiam? Veniam ab illum enim in libero nihil culpa explicabo
-          perspiciatis veritatis non repellendus architecto excepturi nostrum porro voluptatem
-          aperiam animi asperiores, a voluptatibus temporibus minima voluptas ipsa! Recusandae
-          nostrum, aut, voluptates est error iusto, eaque excepturi soluta quas maiores amet.
-      </p>
-    
-      <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores harum veritatis
-          nemo magni odio reprehenderit atque, esse animi porro suscipit vero nobis modi quis.
-          Exercitationem quasi beatae, assumenda officia illum sunt. Cum voluptas maiores
-          vitae eius hic inventore deleniti placeat perferendis quam ut nostrum maxime optio
-          voluptatibus ab laboriosam, quia consectetur atque minus? Adipisci amet aut sint
-          voluptates delectus aperiam? Veniam ab illum enim in libero nihil culpa explicabo
-          perspiciatis veritatis non repellendus architecto excepturi nostrum porro voluptatem
-          aperiam animi asperiores, a voluptatibus temporibus minima voluptas ipsa! Recusandae
-          nostrum, aut, voluptates est error iusto, eaque excepturi soluta quas maiores amet.
-      </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores harum veritatis nemo magni odio reprehenderit atque, esse animi porro suscipit vero nobis modi quis. Exercitationem quasi beatae, assumenda officia illum sunt. Cum voluptas maiores vitae
+            eius hic inventore deleniti placeat perferendis quam ut nostrum maxime optio voluptatibus ab laboriosam, quia consectetur atque minus? Adipisci amet aut sint voluptates delectus aperiam? Veniam ab illum enim in libero nihil culpa explicabo
+            perspiciatis veritatis non repellendus architecto excepturi nostrum porro voluptatem aperiam animi asperiores, a voluptatibus temporibus minima voluptas ipsa! Recusandae nostrum, aut, voluptates est error iusto, eaque excepturi soluta quas
+            maiores amet.
+        </p>
 
-  </div>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores harum veritatis nemo magni odio reprehenderit atque, esse animi porro suscipit vero nobis modi quis. Exercitationem quasi beatae, assumenda officia illum sunt. Cum voluptas maiores vitae
+            eius hic inventore deleniti placeat perferendis quam ut nostrum maxime optio voluptatibus ab laboriosam, quia consectetur atque minus? Adipisci amet aut sint voluptates delectus aperiam? Veniam ab illum enim in libero nihil culpa explicabo
+            perspiciatis veritatis non repellendus architecto excepturi nostrum porro voluptatem aperiam animi asperiores, a voluptatibus temporibus minima voluptas ipsa! Recusandae nostrum, aut, voluptates est error iusto, eaque excepturi soluta quas
+            maiores amet.
+        </p>
 
-  <div class="box">
-    <form >
-        <div class="search">
-               <input type="text" placeholder="Search Notes" name="search">
+    </div>
+
+    <div class="box">
+        <form #f="ngForm">
+            <div class="search">
+                <input type="text" placeholder="Search Notes" name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </div>
-        <div class="form-group">
-            <label for="exampleInputText1"></label>
-
-            <input type="text" class="form-control" id="exampleInputText1" placeholder="Title">
             <div class="form-group">
-                <label for="exampleFormControlTextarea1"></label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="17" placeholder="Write Something.."></textarea>
+                <label for="exampleInputText1"></label>
+
+                <input #titleref="ngModel" [(ngModel)]="titleprop" name="title" type="text" class="form-control" id="exampleInputText1" placeholder="Title">
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1"></label>
+                    <textarea #noteref="ngModel" [(ngModel)]="noteprop" name="note" class="form-control" id="exampleFormControlTextarea1" rows="17" placeholder="Write Something.."></textarea>
+
+                </div>
+                <button (click)="save()" data-toggle="modal" data-target="#exampleModal" type="button" class="btn btn-danger">Save</button>
 
             </div>
-            <button data-toggle="modal" data-target="#exampleModal" routerLink="/save" type="button" class="btn btn-danger">Save</button>
+        </form>
 
-          </div>
-    </form>
+    </div>
 
-</div> 
-
-    </section> 
-
+</section>

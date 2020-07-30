@@ -65,13 +65,13 @@ app.post('/sign-in', bodyParser.json(), (req, res) => {
 
 
 
-app.post('/sign-up', bodyParser.json(), (req, res) => {
+app.post('/save2', bodyParser.json(), (req, res) => {
 
-    var collection = connection.db(dbName).collection('saku');
+    var collection = connection.db(dbName).collection('secretcode');
 
-    collection.find({ email: req.body.email }).toArray((err, docs) => {
+    collection.find({ title: req.body.title }).toArray((err, docs) => {
         if (!err && docs.length > 0) {
-            res.send({ status: "failed", data: "email already Exist" })
+            res.send({ status: "failed", data: "Title already Exists" })
         } else {
 
             collection.insert(req.body, (err, result) => {
