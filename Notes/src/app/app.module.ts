@@ -9,6 +9,7 @@ import { BodyComponent } from './body/body.component';
 import { AllComponent } from './all/all.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { SaveComponent } from './save/save.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,14 +19,10 @@ import { SaveComponent } from './save/save.component';
     BodyComponent,
     AllComponent,
     TasksComponent,
-    SaveComponent
+    SaveComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
