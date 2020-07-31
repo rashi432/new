@@ -67,7 +67,7 @@ app.post('/sign-in', bodyParser.json(), (req, res) => {
 
 app.post('/save2', bodyParser.json(), (req, res) => {
 
-    var collection = connection.db(dbName).collection('secretcode');
+    var collection = connection.db(dbName).collection('data');
 
     collection.find({ title: req.body.title }).toArray((err, docs) => {
         if (!err && docs.length > 0) {

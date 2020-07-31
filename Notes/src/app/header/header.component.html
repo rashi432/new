@@ -50,7 +50,7 @@
                     <textarea #noteref="ngModel" [(ngModel)]="noteprop" name="note" class="form-control" id="exampleFormControlTextarea1" rows="17" placeholder="Write Something.."></textarea>
 
                 </div>
-                <button (click)="save()" data-toggle="modal" data-target="#exampleModal" type="button" class="btn btn-danger">Save</button>
+                <button data-toggle="modal" data-target="#exampleModal" type="button" class="btn btn-danger" (click)="save()">Save</button>
 
             </div>
         </form>
