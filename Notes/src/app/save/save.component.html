@@ -10,16 +10,17 @@
             </div>
             <div class="modal-body">
 
-                <form>
+                <form #f="ngForm">
                     <div class="form-group">
-                        <label class="txt" for="exampleInputText1"></label>
+                        <label class="txt" for="exampleInputText1">Your Title Here:</label>
 
-                        <input type="text" class="form-control" id="exampleInputText1" placeholder="Title">
+                        <input #titleref="ngModel" [(ngModel)]="titleprop" name="title" type="text" class="form-control" id="exampleInputText1" placeholder="Title">
+                        <p></p>
                         <label class="txt" for="exampleInputText1">Create a Secret Code:</label>
-                        <input type="text" class="form-control" id="exampleInputText1" placeholder="Secret Code">
+                        <input #coderef="ngModel" [(ngModel)]="codeprop" name="code" type="password" class="form-control" id="exampleInputText1" placeholder="Secret Code">
                         <small id="txtHelp" class="form-text text-muted" text> We'll never share your Secret Code with anyone else.</small>
                         <p></p>
-                        <button type="button" class="btn btn-info" data-dismiss="modal">OK</button>
+                        <button (click)="secret()" type="button" class="btn btn-info" data-dismiss="modal">OK</button>
 
 
                     </div>

@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
     this.ds
       .save1({ title: this.titleprop, note: this.noteprop })
       .subscribe((response) => {
-        if (response.status == 'ok') {
+        if (response.status === 'ok') {
           alert('Data saved.');
           this.route.navigate(['/save']);
         } else {

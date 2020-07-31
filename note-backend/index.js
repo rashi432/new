@@ -86,6 +86,28 @@ app.post('/save2', bodyParser.json(), (req, res) => {
     })
 })
 
+app.post('/secret2', bodyParser.json(), (req, res) => {
+
+    var collection = connection.db(dbName).collection('secretcode');
+
+    collection.find({ title: req.body.title }).toArray((err, docs) => {
+        if (!err && docs.length > 0) {
+            res.send({ status: "failed", data: "Title already Exists" })
+        } else {
+
+            collection.insert(req.body, (err, result) => {
+                if (!err) {
+                    res.send({ status: "ok", data: "signup success" });
+                } else {
+                    res.send({ status: "failed", data: err });
+                }
+            })
+
+        }
+    })
+})
+
+
 
 // app.get('/getAllplaces', (req, res) => {
 

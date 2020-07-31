@@ -10,4 +10,8 @@ export class DataService {
   save1(d): any {
     return this.http.post('http://localhost:3000/save2', d);
   }
+
+  secret1(d): any {
+    return this.http.post('http://localhost:3000/secret2', d);
+  }
 }
