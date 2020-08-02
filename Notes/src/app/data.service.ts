@@ -14,4 +14,11 @@ export class DataService {
   secret1(d): any {
     return this.http.post('http://localhost:3000/secret2', d);
   }
+  fetchdata(): any {
+    return this.http.get('http://localhost:3000/getAlldata');
+  }
+
+  sign1(d): any {
+    return this.http.post('http://localhost:3000/sign2', d);
+  }
 }

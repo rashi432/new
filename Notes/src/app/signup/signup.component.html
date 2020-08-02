@@ -1,0 +1,43 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">SignUp Form</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <form #f="ngForm">
+                        <div class="form-group">
+                            <label>Your Name:</label>
+                            <input #nameref="ngModel" [(ngModel)]="nameprop" name="name" type="text" class="form-control" placeholder="Name here" id="name" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Enter your Email Id:</label>
+                            <input #emailref="ngModel" [(ngModel)]="emailprop" name="email" type="email" class="form-control" placeholder="Email here" id="email" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Enter password:</label>
+                            <input #passref="ngModel" [(ngModel)]="passprop" name="password" type="password" class="form-control" placeholder="Password here" id="pwd" />
+                        </div>
+
+                        <p></p>
+                        <button type="submit" class="btn btn-dark" (click)="signup()">
+              Submit
+            </button>
+                        <label class="yes">
+              Already Registered?
+              <a routerLink="/login" class="btn btn-primary btn-sm"
+                >Login</a
+              ></label
+            >
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

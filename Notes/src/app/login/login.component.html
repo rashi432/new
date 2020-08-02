@@ -1,0 +1,25 @@
+<section>
+    <div class="login">
+        <form #f="ngForm">
+
+
+            <h1>Login</h1>
+            <div class="box">
+                <i class="fas fa-user"></i>
+                <input #emailref="ngModel" [(ngModel)]="emprop" type="email" placeholder="Email ID" name="emaill" value="" />
+            </div>
+
+            <div class="box">
+                <i class="fas fa-unlock"></i>
+                <input #passref="ngModel" [(ngModel)]="pasprop" type="password" placeholder="Password" name="pass" value="" />
+            </div>
+
+            <button type="button" class="btn">SignIn</button>
+
+            <h5>New User?</h5>
+            <button routerLink="/signup" type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
+      SignUp
+    </button>
+        </form>
+    </div>
+</section>

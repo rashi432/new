@@ -87,8 +87,10 @@ app.post('/save2', bodyParser.json(), (req, res) => {
 })
 
 app.post('/secret2', bodyParser.json(), (req, res) => {
+    console.log("response check");
 
     var collection = connection.db(dbName).collection('secretcode');
+
 
     collection.find({ title: req.body.title }).toArray((err, docs) => {
         if (!err && docs.length > 0) {
@@ -109,25 +111,51 @@ app.post('/secret2', bodyParser.json(), (req, res) => {
 
 
 
-// app.get('/getAllplaces', (req, res) => {
+app.get('/getAlldata', (req, res) => {
 
-//     console.log(req.body)
-//     var collection = connection.db(dbName).collection('places');
-
-
-//     collection.find().toArray((err, docs) => {
-//         console.log("docs found");
-//         console.log(docs);
-//         if (!err && docs.length > 0) {
-//             res.send({ status: "ok", data: docs });
-//         } else {
-//             res.send({ status: "failed", data: err });
-//         }
-//     })
+    console.log(req.body)
+    var collection = connection.db(dbName).collection('data');
 
 
+    collection.find().toArray((err, docs) => {
+        console.log("docs found");
+        console.log(docs);
+        if (!err && docs.length > 0) {
+            res.send({ status: "ok", data: docs });
+        } else {
+            res.send({ status: "failed", data: err });
+        }
+    })
+})
 
-// })
+
+app.post('/sign2', bodyParser.json(), (req, res) => {
+
+    console.log("sign up for user..")
+    console.log(req.body);
+
+    var collection = connection.db(dbName).collection('secretcode');
+
+    collection.find({ email: req.body.email }).toArray((err, docs) => {
+        console.log("Email found!");
+        console.log(docs);
+
+        if (!err && docs.length > 0) {
+            res.send({ status: "failed", data: "email already Exist" })
+        } else {
+
+            collection.insert(req.body, (err, result) => {
+                if (!err) {
+                    res.send({ status: "ok", data: "signup success" });
+                } else {
+                    res.send({ status: "failed", data: err });
+                }
+            })
+
+        }
+    })
+})
+
 
 // app.get('/getAlldetails', (req, res) => {
 
@@ -206,395 +234,395 @@ app.post('/secret2', bodyParser.json(), (req, res) => {
 //         }
 //     });
 // }
-app.use("/", router)
+// app.use("/", router)
 
-app.post('/add', bodyParser.json(), (req, res) => {
+// app.post('/add', bodyParser.json(), (req, res) => {
 
-    console.log("sign up for user..")
-    console.log(req.body);
+//     console.log("sign up for user..")
+//     console.log(req.body);
 
-    var collection = connection.db(dbName).collection('Sale-Everest');
+//     var collection = connection.db(dbName).collection('Sale-Everest');
 
-    collection.find({ email: req.body.email }).toArray((err, docs) => {
-        console.log("found with this email ");
-        console.log(docs);
+//     collection.find({ email: req.body.email }).toArray((err, docs) => {
+//         console.log("found with this email ");
+//         console.log(docs);
 
-        if (!err && docs.length > 0) {
-            res.send({ status: "failed", data: "email already Exist" })
-        } else {
+//         if (!err && docs.length > 0) {
+//             res.send({ status: "failed", data: "email already Exist" })
+//         } else {
 
-            collection.insert(req.body, (err, result) => {
-                if (!err) {
-                    res.send({ status: "ok", data: "signup success" });
-                } else {
-                    res.send({ status: "failed", data: err });
-                }
-            })
+//             collection.insert(req.body, (err, result) => {
+//                 if (!err) {
+//                     res.send({ status: "ok", data: "signup success" });
+//                 } else {
+//                     res.send({ status: "failed", data: err });
+//                 }
+//             })
 
-        }
-    })
+//         }
+//     })
 
-})
+// })
 
-app.post('/add2', bodyParser.json(), (req, res) => {
+// app.post('/add2', bodyParser.json(), (req, res) => {
 
-    console.log("sign up for user..")
-    console.log(req.body);
+//     console.log("sign up for user..")
+//     console.log(req.body);
 
-    var collection = connection.db(dbName).collection('Sale-SSPipe');
+//     var collection = connection.db(dbName).collection('Sale-SSPipe');
 
-    collection.find({ email: req.body.email }).toArray((err, docs) => {
-        console.log("found with this email ");
-        console.log(docs);
+//     collection.find({ email: req.body.email }).toArray((err, docs) => {
+//         console.log("found with this email ");
+//         console.log(docs);
 
-        if (!err && docs.length > 0) {
-            res.send({ status: "failed", data: "email already Exist" })
-        } else {
+//         if (!err && docs.length > 0) {
+//             res.send({ status: "failed", data: "email already Exist" })
+//         } else {
 
-            collection.insert(req.body, (err, result) => {
-                if (!err) {
-                    res.send({ status: "ok", data: "signup success" });
-                } else {
-                    res.send({ status: "failed", data: err });
-                }
-            })
+//             collection.insert(req.body, (err, result) => {
+//                 if (!err) {
+//                     res.send({ status: "ok", data: "signup success" });
+//                 } else {
+//                     res.send({ status: "failed", data: err });
+//                 }
+//             })
 
-        }
-    })
+//         }
+//     })
 
-})
+// })
 
-app.post('/add3', bodyParser.json(), (req, res) => {
+// app.post('/add3', bodyParser.json(), (req, res) => {
 
-    console.log("sign up for user..")
-    console.log(req.body);
+//     console.log("sign up for user..")
+//     console.log(req.body);
 
-    var collection = connection.db(dbName).collection('Sale-MSPipe');
+//     var collection = connection.db(dbName).collection('Sale-MSPipe');
 
-    collection.find({ email: req.body.email }).toArray((err, docs) => {
-        console.log("found with this email ");
-        console.log(docs);
+//     collection.find({ email: req.body.email }).toArray((err, docs) => {
+//         console.log("found with this email ");
+//         console.log(docs);
 
-        if (!err && docs.length > 0) {
-            res.send({ status: "failed", data: "email already Exist" })
-        } else {
+//         if (!err && docs.length > 0) {
+//             res.send({ status: "failed", data: "email already Exist" })
+//         } else {
 
-            collection.insert(req.body, (err, result) => {
-                if (!err) {
-                    res.send({ status: "ok", data: "signup success" });
-                } else {
-                    res.send({ status: "failed", data: err });
-                }
-            })
+//             collection.insert(req.body, (err, result) => {
+//                 if (!err) {
+//                     res.send({ status: "ok", data: "signup success" });
+//                 } else {
+//                     res.send({ status: "failed", data: err });
+//                 }
+//             })
 
-        }
-    })
+//         }
+//     })
 
-})
+// })
 
-app.post('/add4', bodyParser.json(), (req, res) => {
+// app.post('/add4', bodyParser.json(), (req, res) => {
 
-    console.log("sign up for user..")
-    console.log(req.body);
+//     console.log("sign up for user..")
+//     console.log(req.body);
 
-    var collection = connection.db(dbName).collection('Sale-WeldingElectrode');
+//     var collection = connection.db(dbName).collection('Sale-WeldingElectrode');
 
-    collection.find({ email: req.body.email }).toArray((err, docs) => {
-        console.log("found with this email ");
-        console.log(docs);
+//     collection.find({ email: req.body.email }).toArray((err, docs) => {
+//         console.log("found with this email ");
+//         console.log(docs);
 
-        if (!err && docs.length > 0) {
-            res.send({ status: "failed", data: "email already Exist" })
-        } else {
+//         if (!err && docs.length > 0) {
+//             res.send({ status: "failed", data: "email already Exist" })
+//         } else {
 
-            collection.insert(req.body, (err, result) => {
-                if (!err) {
-                    res.send({ status: "ok", data: "signup success" });
-                } else {
-                    res.send({ status: "failed", data: err });
-                }
-            })
+//             collection.insert(req.body, (err, result) => {
+//                 if (!err) {
+//                     res.send({ status: "ok", data: "signup success" });
+//                 } else {
+//                     res.send({ status: "failed", data: err });
+//                 }
+//             })
 
-        }
-    })
+//         }
+//     })
 
-})
+// })
 
-app.post('/add5', bodyParser.json(), (req, res) => {
+// app.post('/add5', bodyParser.json(), (req, res) => {
 
-    console.log("sign up for user..")
-    console.log(req.body);
+//     console.log("sign up for user..")
+//     console.log(req.body);
 
-    var collection = connection.db(dbName).collection('bank');
+//     var collection = connection.db(dbName).collection('bank');
 
-    collection.find({ email: req.body.email }).toArray((err, docs) => {
-        console.log("found with this email ");
-        console.log(docs);
+//     collection.find({ email: req.body.email }).toArray((err, docs) => {
+//         console.log("found with this email ");
+//         console.log(docs);
 
-        if (!err && docs.length > 0) {
-            res.send({ status: "failed", data: "email already Exist" })
-        } else {
+//         if (!err && docs.length > 0) {
+//             res.send({ status: "failed", data: "email already Exist" })
+//         } else {
 
-            collection.insert(req.body, (err, result) => {
-                if (!err) {
-                    res.send({ status: "ok", data: "signup success" });
-                } else {
-                    res.send({ status: "failed", data: err });
-                }
-            })
+//             collection.insert(req.body, (err, result) => {
+//                 if (!err) {
+//                     res.send({ status: "ok", data: "signup success" });
+//                 } else {
+//                     res.send({ status: "failed", data: err });
+//                 }
+//             })
 
-        }
-    })
+//         }
+//     })
 
-})
-app.post('/purchase', bodyParser.json(), (req, res) => {
+// })
+// app.post('/purchase', bodyParser.json(), (req, res) => {
 
-    console.log("sign up for user..")
-    console.log(req.body);
+//     console.log("sign up for user..")
+//     console.log(req.body);
 
-    var collection = connection.db(dbName).collection('Purchase-Everest');
+//     var collection = connection.db(dbName).collection('Purchase-Everest');
 
-    collection.find({ email: req.body.email }).toArray((err, docs) => {
-        console.log("found with this email ");
-        console.log(docs);
+//     collection.find({ email: req.body.email }).toArray((err, docs) => {
+//         console.log("found with this email ");
+//         console.log(docs);
 
-        if (!err && docs.length > 0) {
-            res.send({ status: "failed", data: "email already Exist" })
-        } else {
+//         if (!err && docs.length > 0) {
+//             res.send({ status: "failed", data: "email already Exist" })
+//         } else {
 
-            collection.insert(req.body, (err, result) => {
-                if (!err) {
-                    res.send({ status: "ok", data: "signup success" });
-                } else {
-                    res.send({ status: "failed", data: err });
-                }
-            })
+//             collection.insert(req.body, (err, result) => {
+//                 if (!err) {
+//                     res.send({ status: "ok", data: "signup success" });
+//                 } else {
+//                     res.send({ status: "failed", data: err });
+//                 }
+//             })
 
-        }
-    })
+//         }
+//     })
 
-})
+// })
 
-app.post('/purchase2', bodyParser.json(), (req, res) => {
+// app.post('/purchase2', bodyParser.json(), (req, res) => {
 
-    console.log("sign up for user..")
-    console.log(req.body);
-
-    var collection = connection.db(dbName).collection('Purchase-SSPipe');
-
-    collection.find({ email: req.body.email }).toArray((err, docs) => {
-        console.log("found with this email ");
-        console.log(docs);
-
-        if (!err && docs.length > 0) {
-            res.send({ status: "failed", data: "email already Exist" })
-        } else {
-
-            collection.insert(req.body, (err, result) => {
-                if (!err) {
-                    res.send({ status: "ok", data: "signup success" });
-                } else {
-                    res.send({ status: "failed", data: err });
-                }
-            })
-
-        }
-    })
-
-})
-
-app.post('/purchase3', bodyParser.json(), (req, res) => {
-
-    console.log("sign up for user..")
-    console.log(req.body);
-
-    var collection = connection.db(dbName).collection('Purchase-MSPipe');
-
-    collection.find({ email: req.body.email }).toArray((err, docs) => {
-        console.log("found with this email ");
-        console.log(docs);
-
-        if (!err && docs.length > 0) {
-            res.send({ status: "failed", data: "email already Exist" })
-        } else {
-
-            collection.insert(req.body, (err, result) => {
-                if (!err) {
-                    res.send({ status: "ok", data: "signup success" });
-                } else {
-                    res.send({ status: "failed", data: err });
-                }
-            })
-
-        }
-    })
-
-})
-app.post('/purchase4', bodyParser.json(), (req, res) => {
-
-    console.log("sign up for user..")
-    console.log(req.body);
-
-    var collection = connection.db(dbName).collection('Purchase-WeldingElectrode');
-
-    collection.find({ email: req.body.email }).toArray((err, docs) => {
-        console.log("found with this email ");
-        console.log(docs);
-
-        if (!err && docs.length > 0) {
-            res.send({ status: "failed", data: "email already Exist" })
-        } else {
-
-            collection.insert(req.body, (err, result) => {
-                if (!err) {
-                    res.send({ status: "ok", data: "signup success" });
-                } else {
-                    res.send({ status: "failed", data: err });
-                }
-            })
-
-        }
-    })
-
-})
-app.get('/geteverest', (req, res) => {
-    console.log(req.body)
-    var collection = connection.db(dbName).collection('Sale-Everest');
-
-    console.log(req.body)
-    collection.find().toArray((err, docs) => {
-        console.log("docs found");
-        console.log(docs);
-        if (!err && docs.length > 0) {
-            res.send({ status: "ok", data: docs });
-        } else {
-            res.send({ status: "failed", data: err });
-        }
-    })
-})
-app.get('/getpipe1', (req, res) => {
-    console.log(req.body)
-    var collection = connection.db(dbName).collection('Sale-MSPipe');
-
-    console.log(req.body)
-    collection.find().toArray((err, docs) => {
-        console.log("docs found");
-        console.log(docs);
-        if (!err && docs.length > 0) {
-            res.send({ status: "ok", data: docs });
-        } else {
-            res.send({ status: "failed", data: err });
-        }
-    })
-})
-app.get('/getpipe2', (req, res) => {
-    console.log(req.body)
-    var collection = connection.db(dbName).collection('Sale-SSPipe');
-
-    console.log(req.body)
-    collection.find().toArray((err, docs) => {
-        console.log("docs found");
-        console.log(docs);
-        if (!err && docs.length > 0) {
-            res.send({ status: "ok", data: docs });
-        } else {
-            res.send({ status: "failed", data: err });
-        }
-    })
-})
-app.get('/getbox', (req, res) => {
-    console.log(req.body)
-    var collection = connection.db(dbName).collection('Sale-WeldingElectrode');
-
-    console.log(req.body)
-    collection.find().toArray((err, docs) => {
-        console.log("docs found");
-        console.log(docs);
-        if (!err && docs.length > 0) {
-            res.send({ status: "ok", data: docs });
-        } else {
-            res.send({ status: "failed", data: err });
-        }
-    })
-})
-app.get('/getbank', (req, res) => {
-    console.log(req.body)
-    var collection = connection.db(dbName).collection('bank');
-
-    console.log(req.body)
-    collection.find().toArray((err, docs) => {
-        console.log("docs found");
-        console.log(docs);
-        if (!err && docs.length > 0) {
-            res.send({ status: "ok", data: docs });
-        } else {
-            res.send({ status: "failed", data: err });
-        }
-    })
-})
-
-app.get('/getsheet', (req, res) => {
-    console.log(req.body)
-    var collection = connection.db(dbName).collection('Purchase-Everest');
-
-    console.log(req.body)
-    collection.find().toArray((err, docs) => {
-        console.log("docs found");
-        console.log(docs);
-        if (!err && docs.length > 0) {
-            res.send({ status: "ok", data: docs });
-        } else {
-            res.send({ status: "failed", data: err });
-        }
-    })
-})
-
-app.get('/getsspipe', (req, res) => {
-    console.log(req.body)
-    var collection = connection.db(dbName).collection('Purchase-SSPipe');
-
-    console.log(req.body)
-    collection.find().toArray((err, docs) => {
-        console.log("docs found");
-        console.log(docs);
-        if (!err && docs.length > 0) {
-            res.send({ status: "ok", data: docs });
-        } else {
-            res.send({ status: "failed", data: err });
-        }
-    })
-})
-
-app.get('/getmspipe', (req, res) => {
-    console.log(req.body)
-    var collection = connection.db(dbName).collection('Purchase-MSPipe');
-
-    console.log(req.body)
-    collection.find().toArray((err, docs) => {
-        console.log("docs found");
-        console.log(docs);
-        if (!err && docs.length > 0) {
-            res.send({ status: "ok", data: docs });
-        } else {
-            res.send({ status: "failed", data: err });
-        }
-    })
-})
-app.get('/getelectrode', (req, res) => {
-    console.log(req.body)
-    var collection = connection.db(dbName).collection('Purchase-WeldingElectrode');
-
-    console.log(req.body)
-    collection.find().toArray((err, docs) => {
-        console.log("docs found");
-        console.log(docs);
-        if (!err && docs.length > 0) {
-            res.send({ status: "ok", data: docs });
-        } else {
-            res.send({ status: "failed", data: err });
-        }
-    })
-})
+//     console.log("sign up for user..")
+//     console.log(req.body);
+
+//     var collection = connection.db(dbName).collection('Purchase-SSPipe');
+
+//     collection.find({ email: req.body.email }).toArray((err, docs) => {
+//         console.log("found with this email ");
+//         console.log(docs);
+
+//         if (!err && docs.length > 0) {
+//             res.send({ status: "failed", data: "email already Exist" })
+//         } else {
+
+//             collection.insert(req.body, (err, result) => {
+//                 if (!err) {
+//                     res.send({ status: "ok", data: "signup success" });
+//                 } else {
+//                     res.send({ status: "failed", data: err });
+//                 }
+//             })
+
+//         }
+//     })
+
+// })
+
+// app.post('/purchase3', bodyParser.json(), (req, res) => {
+
+//     console.log("sign up for user..")
+//     console.log(req.body);
+
+//     var collection = connection.db(dbName).collection('Purchase-MSPipe');
+
+//     collection.find({ email: req.body.email }).toArray((err, docs) => {
+//         console.log("found with this email ");
+//         console.log(docs);
+
+//         if (!err && docs.length > 0) {
+//             res.send({ status: "failed", data: "email already Exist" })
+//         } else {
+
+//             collection.insert(req.body, (err, result) => {
+//                 if (!err) {
+//                     res.send({ status: "ok", data: "signup success" });
+//                 } else {
+//                     res.send({ status: "failed", data: err });
+//                 }
+//             })
+
+//         }
+//     })
+
+// })
+// app.post('/purchase4', bodyParser.json(), (req, res) => {
+
+//     console.log("sign up for user..")
+//     console.log(req.body);
+
+//     var collection = connection.db(dbName).collection('Purchase-WeldingElectrode');
+
+//     collection.find({ email: req.body.email }).toArray((err, docs) => {
+//         console.log("found with this email ");
+//         console.log(docs);
+
+//         if (!err && docs.length > 0) {
+//             res.send({ status: "failed", data: "email already Exist" })
+//         } else {
+
+//             collection.insert(req.body, (err, result) => {
+//                 if (!err) {
+//                     res.send({ status: "ok", data: "signup success" });
+//                 } else {
+//                     res.send({ status: "failed", data: err });
+//                 }
+//             })
+
+//         }
+//     })
+
+// })
+// app.get('/geteverest', (req, res) => {
+//     console.log(req.body)
+//     var collection = connection.db(dbName).collection('Sale-Everest');
+
+//     console.log(req.body)
+//     collection.find().toArray((err, docs) => {
+//         console.log("docs found");
+//         console.log(docs);
+//         if (!err && docs.length > 0) {
+//             res.send({ status: "ok", data: docs });
+//         } else {
+//             res.send({ status: "failed", data: err });
+//         }
+//     })
+// })
+// app.get('/getpipe1', (req, res) => {
+//     console.log(req.body)
+//     var collection = connection.db(dbName).collection('Sale-MSPipe');
+
+//     console.log(req.body)
+//     collection.find().toArray((err, docs) => {
+//         console.log("docs found");
+//         console.log(docs);
+//         if (!err && docs.length > 0) {
+//             res.send({ status: "ok", data: docs });
+//         } else {
+//             res.send({ status: "failed", data: err });
+//         }
+//     })
+// })
+// app.get('/getpipe2', (req, res) => {
+//     console.log(req.body)
+//     var collection = connection.db(dbName).collection('Sale-SSPipe');
+
+//     console.log(req.body)
+//     collection.find().toArray((err, docs) => {
+//         console.log("docs found");
+//         console.log(docs);
+//         if (!err && docs.length > 0) {
+//             res.send({ status: "ok", data: docs });
+//         } else {
+//             res.send({ status: "failed", data: err });
+//         }
+//     })
+// })
+// app.get('/getbox', (req, res) => {
+//     console.log(req.body)
+//     var collection = connection.db(dbName).collection('Sale-WeldingElectrode');
+
+//     console.log(req.body)
+//     collection.find().toArray((err, docs) => {
+//         console.log("docs found");
+//         console.log(docs);
+//         if (!err && docs.length > 0) {
+//             res.send({ status: "ok", data: docs });
+//         } else {
+//             res.send({ status: "failed", data: err });
+//         }
+//     })
+// })
+// app.get('/getbank', (req, res) => {
+//     console.log(req.body)
+//     var collection = connection.db(dbName).collection('bank');
+
+//     console.log(req.body)
+//     collection.find().toArray((err, docs) => {
+//         console.log("docs found");
+//         console.log(docs);
+//         if (!err && docs.length > 0) {
+//             res.send({ status: "ok", data: docs });
+//         } else {
+//             res.send({ status: "failed", data: err });
+//         }
+//     })
+// })
+
+// app.get('/getsheet', (req, res) => {
+//     console.log(req.body)
+//     var collection = connection.db(dbName).collection('Purchase-Everest');
+
+//     console.log(req.body)
+//     collection.find().toArray((err, docs) => {
+//         console.log("docs found");
+//         console.log(docs);
+//         if (!err && docs.length > 0) {
+//             res.send({ status: "ok", data: docs });
+//         } else {
+//             res.send({ status: "failed", data: err });
+//         }
+//     })
+// })
+
+// app.get('/getsspipe', (req, res) => {
+//     console.log(req.body)
+//     var collection = connection.db(dbName).collection('Purchase-SSPipe');
+
+//     console.log(req.body)
+//     collection.find().toArray((err, docs) => {
+//         console.log("docs found");
+//         console.log(docs);
+//         if (!err && docs.length > 0) {
+//             res.send({ status: "ok", data: docs });
+//         } else {
+//             res.send({ status: "failed", data: err });
+//         }
+//     })
+// })
+
+// app.get('/getmspipe', (req, res) => {
+//     console.log(req.body)
+//     var collection = connection.db(dbName).collection('Purchase-MSPipe');
+
+//     console.log(req.body)
+//     collection.find().toArray((err, docs) => {
+//         console.log("docs found");
+//         console.log(docs);
+//         if (!err && docs.length > 0) {
+//             res.send({ status: "ok", data: docs });
+//         } else {
+//             res.send({ status: "failed", data: err });
+//         }
+//     })
+// })
+// app.get('/getelectrode', (req, res) => {
+//     console.log(req.body)
+//     var collection = connection.db(dbName).collection('Purchase-WeldingElectrode');
+
+//     console.log(req.body)
+//     collection.find().toArray((err, docs) => {
+//         console.log("docs found");
+//         console.log(docs);
+//         if (!err && docs.length > 0) {
+//             res.send({ status: "ok", data: docs });
+//         } else {
+//             res.send({ status: "failed", data: err });
+//         }
+//     })
+// })
 
 
 

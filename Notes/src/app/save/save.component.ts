@@ -12,19 +12,19 @@ export class SaveComponent implements OnInit {
   codeprop;
 
   constructor(private route: Router, private ds: DataService) {}
-
-  ngOnInit(): void {}
+ngOnInit(): void {}
 
   secret() {
     this.ds
       .secret1({ title: this.titleprop, code: this.codeprop })
       .subscribe((response) => {
-        if (response.status === 'ok') {
-          alert('Data saved.');
-          this.route.navigate([' ']);
+        if (response.status=='ok') {
+ alert('saved.');
+          this.route.navigate(['/']);
         } else {
           alert('Please check again!');
         }
       });
   }
+
 }

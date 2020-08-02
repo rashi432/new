@@ -38,8 +38,12 @@
     <div class="box">
         <form #f="ngForm">
             <div class="search">
-                <input type="text" placeholder="Search Notes" name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
+                <input type="text" class="search_input" [(ngModel)]="title" name="title" placeholder="Search Notes" name="search">
+                <button (click)="fetchdata()" type="submit"><i class="fa fa-search"></i></button>
+
+                <div *ngFor="let p of filteredtitle">
+                    {{p|json}}
+                </div>
             </div>
             <div class="form-group">
                 <label for="exampleInputText1"></label>
