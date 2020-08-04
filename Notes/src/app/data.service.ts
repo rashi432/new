@@ -21,4 +21,8 @@ export class DataService {
   sign1(d): any {
     return this.http.post('http://localhost:3000/sign2', d);
   }
+
+  login1(d): any {
+    return this.http.post('http://localhost:3000/login2', d);
+  }
 }

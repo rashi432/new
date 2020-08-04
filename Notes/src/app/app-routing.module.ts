@@ -8,6 +8,7 @@ import { SearchComponent } from './search/search.component';
 import { MainComponent } from './main/main.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
+import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
   {
@@ -15,8 +16,9 @@ const routes: Routes = [
     component: MainComponent,
     children: [{ path: 'signup', component: SignupComponent }],
   },
-  { path: 'login', component: LoginComponent },
 
+  { path: 'login', component: LoginComponent },
+  { path: 'header', component: HeaderComponent },
   //     { path: 'main-page',
   //   component: MainPageComponent,
   //   children: [

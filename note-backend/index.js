@@ -47,10 +47,10 @@ app.use(cors());
 // })
 
 
-app.post('/sign-in', bodyParser.json(), (req, res) => {
+app.post('/login2', bodyParser.json(), (req, res) => {
 
     console.log(req.body)
-    var collection = connection.db(dbName).collection('login');
+    var collection = connection.db(dbName).collection('secretcode');
     collection.find(req.body).toArray((err, docs) => {
         console.log("docs found");
         console.log(docs);

@@ -17,22 +17,21 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {}
 
   signup() {
-    this.ds.sign1({
-      name: this.nameprop,
-      email: this.emailprop,
-      password: this.passprop,
-    });
-   .subscribe ((response) => {
-    if (response.status == "ok") {
+    this.ds
+      .sign1({
+        name: this.nameprop,
+        email: this.emailprop,
+        password: this.passprop,
+      })
 
-      alert(" Registration Successful!");
+      .subscribe((response) => {
+        if (response.status == 'ok') {
+          alert(' Registration Successful!');
 
-      this.route.navigate(['/login']);
-    }
-
-    else{
-      alert("Couldn't Register");
-    }
-   });
+          this.route.navigate(['/login']);
+        } else {
+          alert('Could not register');
+        }
+      });
   }
 }

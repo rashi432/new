@@ -17,7 +17,8 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {}
   save() {
-    this.ds.save1({ title: this.titleprop, note: this.noteprop })
+    this.ds
+      .save1({ title: this.titleprop, note: this.noteprop })
       .subscribe((response) => {
         if (response.status == 'ok') {
           alert('Data saved.');
@@ -26,16 +27,10 @@ export class HeaderComponent implements OnInit {
           alert('Please check again!');
         }
       });
-
-
   }
-  fetchdata()
-      {
-        alert("input value"     + this.title);
-        localStorage.setItem('searchtitle', this.title);
-         this.route.navigate(['/search']) ;
-         
-          
-    
-      }
+  fetchdata() {
+    alert('input value' + this.title);
+    localStorage.setItem('searchtitle', this.title);
+    this.route.navigate(['/search']);
+  }
 }
