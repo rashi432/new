@@ -6,8 +6,10 @@
 
             <ul class="navbar-nav ml-auto">
 
-                <a data-toggle="modal" data-target="#exampleModalCenter" routerLink="/all" class="navbar-brand" href="#">All Notes</a>
-                <a routerLink="/tasks" class="navbar-brand" href="#">Tasks</a>
+                <a routerLink="/all" class="navbar-brand" href="#">All Notes</a>
+                <a routerLink="/trash" class="navbar-brand" href="#">Trash</a>
+                <a (click)="logout()" routerLink="/logout" class="navbar-brand" href="#">Logout</a>
+
 
 
             </ul>

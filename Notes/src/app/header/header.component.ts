@@ -33,4 +33,9 @@ export class HeaderComponent implements OnInit {
     localStorage.setItem('searchtitle', this.title);
     this.route.navigate(['/search']);
   }
+
+  logout() {
+    localStorage.removeItem('email');
+    this.route.navigate(['/']);
+  }
 }

@@ -86,28 +86,28 @@ app.post('/save2', bodyParser.json(), (req, res) => {
     })
 })
 
-app.post('/secret2', bodyParser.json(), (req, res) => {
-    console.log("response check");
+// app.post('/secret2', bodyParser.json(), (req, res) => {
+//     console.log("response check");
 
-    var collection = connection.db(dbName).collection('secretcode');
+//     var collection = connection.db(dbName).collection('secretcode');
 
 
-    collection.find({ title: req.body.title }).toArray((err, docs) => {
-        if (!err && docs.length > 0) {
-            res.send({ status: "failed", data: "Title already Exists" })
-        } else {
+//     collection.find({ title: req.body.title }).toArray((err, docs) => {
+//         if (!err && docs.length > 0) {
+//             res.send({ status: "failed", data: "Title already Exists" })
+//         } else {
 
-            collection.insert(req.body, (err, result) => {
-                if (!err) {
-                    res.send({ status: "ok", data: "signup success" });
-                } else {
-                    res.send({ status: "failed", data: err });
-                }
-            })
+//             collection.insert(req.body, (err, result) => {
+//                 if (!err) {
+//                     res.send({ status: "ok", data: "signup success" });
+//                 } else {
+//                     res.send({ status: "failed", data: err });
+//                 }
+//             })
 
-        }
-    })
-})
+//         }
+//     })
+// })
 
 
 

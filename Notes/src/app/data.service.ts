@@ -11,9 +11,9 @@ export class DataService {
     return this.http.post('http://localhost:3000/save2', d);
   }
 
-  secret1(d): any {
-    return this.http.post('http://localhost:3000/secret2', d);
-  }
+  // secret1(d): any {
+  //   return this.http.post('http://localhost:3000/secret2', d);
+  // }
   fetchdata(): any {
     return this.http.get('http://localhost:3000/getAlldata');
   }
